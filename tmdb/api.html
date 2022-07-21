@@ -67,11 +67,12 @@
         let videoSrc = vid.src
         let watchedTime = vid.currentTime
         vid.onloadstart = function () {
-            vid.currentTime = localStorage.getItem(videoSrc);
+            if (localStorage.getItem(videoSrc) !== null) vid.currentTime = localStorage.getItem(videoSrc);
         };
         vid.onplay = function () {
             videoInterval = setInterval(() => {
                 localStorage.setItem(videoSrc, watchedTime);
+                console.log(watchedTime);
             }, interval);
         };
         vid.onpause = function () {
