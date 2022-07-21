@@ -41,13 +41,13 @@
         <video id="player" autoplay controls></video>
     </div>
     <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const tmdbID = urlParams.get('id')
+        const sN = urlParams.get('s')
+        const eN = urlParams.get('e')
+        const _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
         window.onload = function () {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const tmdbID = urlParams.get('id')
-            const sN = urlParams.get('s')
-            const eN = urlParams.get('e')
-            const _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
             getEval(_x);
         };
         async function getEval(url) {
@@ -66,12 +66,12 @@
         var vid = document.getElementById("player");
         vid.onloadstart = function () {
             const plyr_x1 = document.getElementById("player");
-            if (localStorage.getItem(plyr_x1.src) !== null) plyr_x1.currentTime = localStorage.getItem(plyr_x1.src);
+            if (localStorage.getItem(`${tmdbID}-${sN}-${eN}`) !== null) plyr_x1.currentTime = localStorage.getItem(`${tmdbID}-${sN}-${eN}`);
         };
         vid.onplay = function () {
             videoInterval = setInterval(() => {
                 const plyr_x2 = document.getElementById("player");
-                localStorage.setItem(plyr_x2.src, plyr_x2.currentTime);
+                localStorage.setItem(`${tmdbID}-${sN}-${eN}`, plyr_x2.currentTime);
                 console.log(plyr_x2.currentTime);
             }, interval);
         };
