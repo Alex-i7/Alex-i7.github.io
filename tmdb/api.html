@@ -16,7 +16,7 @@
         }
 
         #wrapper {
-            display: none;
+            display: flex;
             justify-content: center;
             width: 900px;
             height: 500px;
@@ -37,7 +37,7 @@
 </head>
 
 <body style="background-color:black;">
-    <div id="wrapper" class="wrapper">
+    <div id="mainWrapper" class="wrapper">
         <video id="player" autoplay controls></video>
     </div>
     <script>
@@ -48,6 +48,7 @@
         const eN = urlParams.get('e')
         const _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
         window.onload = function () {
+            document.getElementById('mainWrapper').style.display = 'none';
             getEval(_x);
         };
         async function getEval(url) {
@@ -60,7 +61,7 @@
             scriptX.type = 'text/javascript';
             scriptX.textContent = scriptY;
             document.getElementsByTagName('body')[0].appendChild(scriptX);
-            document.getElementById('wrapper').style.display = 'flex';
+            document.getElementById('mainWrapper').style.display = '';
         }
         let interval = 5500
         let videoInterval;
@@ -73,7 +74,6 @@
             videoInterval = setInterval(() => {
                 const plyr_x2 = document.getElementById("player");
                 localStorage.setItem(`${tmdbID}-${sN}-${eN}`, plyr_x2.currentTime);
-                console.log(plyr_x2.currentTime);
             }, interval);
         };
         vid.onpause = function () {
