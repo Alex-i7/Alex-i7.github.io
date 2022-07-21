@@ -61,20 +61,25 @@
             scriptX.textContent = scriptY;
             document.getElementsByTagName('body')[0].appendChild(scriptX);
         }
-        /*var vid = document.getElementById("player");
+        let interval = 5500
+        let videoInterval;
+        var vid = document.getElementById("player");
+        let videoSrc = vid.src
+        let watchedTime = vid.currentTime
+        vid.onloadstart = function () {
+            vid.currentTime = localStorage.getItem(videoSrc);
+        };
         vid.onplay = function () {
-            alert("The video has started to play");
-        };*/
+            videoInterval = setInterval(() => {
+                localStorage.setItem(videoSrc, watchedTime);
+            }, interval);
+        };
+        vid.onpause = function () {
+            clearInterval(videoInterval)
+        };
     </script>
     <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script>
-    <script>
-        window.onmessage = (event) => {
-            if (event.data) {
-                console.log(even.data)
-            }
-        };
-    </script>
 </body>
 
 </html>
