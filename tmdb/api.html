@@ -43,10 +43,19 @@
     <script>
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
+        const type = urlParams.get('t')
         const tmdbID = urlParams.get('id')
         const sN = urlParams.get('s')
         const eN = urlParams.get('e')
-        const _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
+        let _x, _y;
+        if (type === 'tv') {
+            _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
+            _y = `${tmdbID}-${sN}-${eN}`
+        }
+        if (type === 'movie') {
+            _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}`
+            _y = `${tmdbID}`
+        }
         window.onload = function () {
             document.getElementById('mainWrapper').style.display = 'none';
             getEval(_x);
@@ -68,12 +77,12 @@
         var vid = document.getElementById("player");
         vid.onloadstart = function () {
             const plyr_x1 = document.getElementById("player");
-            if (localStorage.getItem(`${tmdbID}-${sN}-${eN}`) !== null) plyr_x1.currentTime = localStorage.getItem(`${tmdbID}-${sN}-${eN}`);
+            if (localStorage.getItem(_y) !== null) plyr_x1.currentTime = localStorage.getItem(_y);
         };
         vid.onplay = function () {
             videoInterval = setInterval(() => {
                 const plyr_x2 = document.getElementById("player");
-                localStorage.setItem(`${tmdbID}-${sN}-${eN}`, plyr_x2.currentTime);
+                localStorage.setItem(_y, plyr_x2.currentTime);
             }, interval);
         };
         vid.onpause = function () {
