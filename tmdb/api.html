@@ -16,7 +16,7 @@
         }
 
         #wrapper {
-            display: flex;
+            display: none;
             justify-content: center;
             width: 900px;
             height: 500px;
@@ -37,7 +37,7 @@
 </head>
 
 <body style="background-color:black;">
-    <div hidden id="wrapper" class="wrapper">
+    <div id="wrapper" class="wrapper">
         <video id="player" autoplay controls></video>
     </div>
     <script>
@@ -60,7 +60,7 @@
             scriptX.type = 'text/javascript';
             scriptX.textContent = scriptY;
             document.getElementsByTagName('body')[0].appendChild(scriptX);
-            document.getElementById('wrapper').style.visibility = 'visible';
+            document.getElementById('wrapper').style.display = 'flex';
         }
         let interval = 5500
         let videoInterval;
