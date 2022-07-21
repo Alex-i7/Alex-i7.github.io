@@ -64,15 +64,15 @@
         let interval = 5500
         let videoInterval;
         var vid = document.getElementById("player");
-        let videoSrc = vid.src
-        let watchedTime = vid.currentTime
         vid.onloadstart = function () {
-            if (localStorage.getItem(videoSrc) !== null) vid.currentTime = localStorage.getItem(videoSrc);
+            const plyr_x1 = document.getElementById("player");
+            if (localStorage.getItem(plyr_x1.src) !== null) plyr_x1.currentTime = localStorage.getItem(plyr_x1.src);
         };
         vid.onplay = function () {
             videoInterval = setInterval(() => {
-                localStorage.setItem(videoSrc, watchedTime);
-                console.log(watchedTime);
+                const plyr_x2 = document.getElementById("player");
+                localStorage.setItem(plyr_x2.src, plyr_x2.currentTime);
+                console.log(plyr_x2.currentTime);
             }, interval);
         };
         vid.onpause = function () {
