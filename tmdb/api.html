@@ -36,8 +36,8 @@
     </style>
 </head>
 
-<body>
-    <div class="wrapper">
+<body style="background-color:black;">
+    <div hidden id="wrapper" class="wrapper">
         <video id="player" autoplay controls></video>
     </div>
     <script>
@@ -60,6 +60,7 @@
             scriptX.type = 'text/javascript';
             scriptX.textContent = scriptY;
             document.getElementsByTagName('body')[0].appendChild(scriptX);
+            document.getElementById('wrapper').style.visibility = 'visible';
         }
         let interval = 5500
         let videoInterval;
