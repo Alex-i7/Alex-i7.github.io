@@ -47,24 +47,35 @@
         const name = urlParams.get('n')
         const sN = urlParams.get('s')
         const eN = urlParams.get('e')
-        let _x, _y;
-        const searchJson = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=d0aa8ae113702ff0e14262d798b063b0&language=en-US&page=1&query=${name}`).then(d => d.json());
-        const tmdbID = searchJson.results[0].id;
+        let _y;
         if (type === 'tv') {
-            _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
-            _y = `${tmdbID}-${sN}-${eN}`
+            _y = `${name}-${sN}-${eN}`
         }
         if (type === 'movie') {
-            _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}`
-            _y = `${tmdbID}`
+            _y = `${name}`
         }
         window.onload = function () {
             document.getElementById('mainWrapper').style.display = 'none';
-            getEval(_x);
+            getEval();
         };
-        async function getEval(url) {
+        async function getEval() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const type = urlParams.get('t')
+            const name = urlParams.get('n')
+            const sN = urlParams.get('s')
+            const eN = urlParams.get('e')
+            let _x;
+            const searchJson = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=d0aa8ae113702ff0e14262d798b063b0&language=en-US&page=1&query=${name}`).then(d => d.json());
+            const tmdbID = searchJson.results[0].id;
+            if (type === 'tv') {
+                _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
+            }
+            if (type === 'movie') {
+                _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}`
+            }
             var parser, xmlDoc;
-            const text = await fetch(url).then(d => d.text());
+            const text = await fetch(_x).then(d => d.text());
             parser = new DOMParser();
             xmlDoc = parser.parseFromString(text, "text/html");
             const scriptY = Array.from(xmlDoc.querySelectorAll("script")).find((e) => e.textContent.includes("eval")).textContent;
