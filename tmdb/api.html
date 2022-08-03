@@ -45,10 +45,10 @@
         const urlParams = new URLSearchParams(queryString);
         const type = urlParams.get('t')
         const tmdbID = urlParams.get('id')
-        const sN = urlParams.get('s')
-        const eN = urlParams.get('e')
         let _x, _y;
         if (type === 'tv') {
+            const sN = urlParams.get('s')
+            const eN = urlParams.get('e')
             _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
             _y = `${tmdbID}-${sN}-${eN}`
         }

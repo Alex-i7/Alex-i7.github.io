@@ -46,10 +46,10 @@
         const data = atob(urlParams.get('data'));
         const type = data.type;
         const tmdbID = data.id;
-        const sN = data.season;
-        const eN = data.episode;
         let _x, _y;
         if (type === 'tv') {
+            const sN = data.season;
+            const eN = data.episode;
             _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
             _y = `${tmdbID}-${sN}-${eN}`
         }
