@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>api</title>
+    <title>oo2core_8_win64.dll</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://olgply.com/plyr.css" />
@@ -46,14 +46,17 @@
         const data = JSON.parse(atob(urlParams.get('data')));
         const type = data.type;
         const tmdbID = data.id;
+        const name = data.name;
         let _x, _y;
         if (type === 'tv') {
             const sN = data.season;
             const eN = data.episode;
+            document.title = `${name} | S${sN}:E${eN}`;
             _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}/${sN}/${eN}`
             _y = `${tmdbID}-${sN}-${eN}`
         }
         if (type === 'movie') {
+            document.title = `${name}`;
             _x = `https://proxy-1.alxi7.workers.dev/?destination=https://olgply.xyz/${tmdbID}`
             _y = `${tmdbID}`
         }
