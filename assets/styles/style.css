@@ -38,7 +38,7 @@ p {
 .flex-item {
     padding: 3rem;
     text-align: center;
-    background-color: #3d2d33;
+    background-color: #2a1f22;
     border-radius: 1rem;
 }
 
@@ -47,7 +47,7 @@ p {
     height: 5rem;
     width: 5rem;
     border-radius: 3rem;
-    background-color: #3d2d33;
+    background-color: #2a1f22;
     background-image: url('../img/alex.jpg');
     display: block;
     margin: 0 auto;
