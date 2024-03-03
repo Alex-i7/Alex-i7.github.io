@@ -14,7 +14,7 @@
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const source = urlParams.get('source');
-  document.getElementById("hls-video").src = atob(source);
+  document.querySelector("media-controller > hls-video").src = atob(source);
 </script>
 
 <media-controller style="width: 100%; height: 100%;">
