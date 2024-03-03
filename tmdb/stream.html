@@ -13,8 +13,10 @@
 <script>
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const source = urlParams.get('source');
-  document.querySelector("media-controller > hls-video").src = atob(source);
+  const urlSource = urlParams.get('source');
+  const source = atob(urlSource);
+  document.querySelector("media-controller > hls-video").src = source;
+  document.querySelector("media-controller > hls-video").play();
 </script>
 
 <media-controller style="width: 100%; height: 100%;">
