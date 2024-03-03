@@ -1,0 +1,34 @@
+<head>
+  <style>
+    media-controller {
+      --media-icon-color: white;
+      --media-control-background: rgba(255, 255, 255, 0.25);
+      --media-control-hover-background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome@1/+esm"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/hls-video-element@1.0/+esm"></script>
+
+<script>
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const source = urlParams.get('source');
+  document.getElementById("hls-video").src = atob(source);
+</script>
+
+<media-controller style="width: 100%; height: 100%;">
+  <hls-video src="" slot="media" crossorigin></hls-video>
+  <media-loading-indicator slot="centered-chrome" noautohide></media-loading-indicator>
+  <media-control-bar>
+    <media-play-button></media-play-button>
+    <media-seek-backward-button></media-seek-backward-button>
+    <media-seek-forward-button></media-seek-forward-button>
+    <media-mute-button></media-mute-button>
+    <media-volume-range></media-volume-range>
+    <media-time-range></media-time-range>
+    <media-time-display showduration remaining></media-time-display>
+    <media-playback-rate-button></media-playback-rate-button>
+    <media-fullscreen-button></media-fullscreen-button>
+  </media-control-bar>
+</media-controller>
