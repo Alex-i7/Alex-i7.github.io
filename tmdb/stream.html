@@ -20,18 +20,22 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const urlSource = urlParams.get('source');
+    const urlType = urlParams.get('type');
     const source = atob(urlSource);
-    getEval(source);
+    getEval(source, urlType);
   };
 
-  function getEval(url) {
-    document.querySelector("media-controller > hls-video").src = url;
+  function getEval(url, type) {
+    if (type === "mp4") {
+      document.querySelector("media-controller").innerHTML += `<video src="${url}" slot="media"></video>`
+    } else {
+      document.querySelector("media-controller").innerHTML += `<hls-video src="${url}" slot="media" crossorigin></hls-video>`
+    }
   }
 
 </script>
 
 <media-controller style="width: 100%; height: 100%;">
-  <hls-video src="" slot="media" crossorigin></hls-video>
   <media-loading-indicator slot="centered-chrome" noautohide></media-loading-indicator>
   <media-control-bar>
     <media-play-button></media-play-button>
