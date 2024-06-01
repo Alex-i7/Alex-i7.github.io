@@ -2,61 +2,22 @@
     display: none !important;
 }
 
-.comp-lvnzmk1i-overflow-wrapper::-webkit-scrollbar {
+div[data-testid="responsive-container-overflow"]::-webkit-scrollbar {
     background-color: #131416 !important;
 }
 
-.comp-lvnzmk1i-overflow-wrapper::-webkit-scrollbar-track {
+div[data-testid="responsive-container-overflow"]::-webkit-scrollbar-track {
     background-color: #131416 !important;
 }
 
-.comp-lvnzmk1i-overflow-wrapper::-webkit-scrollbar-track:hover {
+div[data-testid="responsive-container-overflow"]::-webkit-scrollbar-track:hover {
     background-color: #131416 !important;
 }
 
-.comp-lvnzmk1i-overflow-wrapper::-webkit-scrollbar-thumb {
+div[data-testid="responsive-container-overflow"]::-webkit-scrollbar-thumb {
     border: 5px solid #131416 !important;
 }
 
-.comp-lvnzmk1i-overflow-wrapper::-webkit-scrollbar-thumb:hover {
-    border: 4px solid #131416 !important;
-}
-
-.comp-lwg51blg-overflow-wrapper::-webkit-scrollbar {
-    background-color: #131416 !important;
-}
-
-.comp-lwg51blg-overflow-wrapper::-webkit-scrollbar-track {
-    background-color: #131416 !important;
-}
-
-.comp-lwg51blg-overflow-wrapper::-webkit-scrollbar-track:hover {
-    background-color: #131416 !important;
-}
-
-.comp-lwg51blg-overflow-wrapper::-webkit-scrollbar-thumb {
-    border: 5px solid #131416 !important;
-}
-
-.comp-lwg51blg-overflow-wrapper::-webkit-scrollbar-thumb:hover {
-    border: 4px solid #131416 !important;
-}
-.comp-lwgeauek-overflow-wrapper::-webkit-scrollbar {
-    background-color: #131416 !important;
-}
-
-.comp-lwgeauek-overflow-wrapper::-webkit-scrollbar-track {
-    background-color: #131416 !important;
-}
-
-.comp-lwgeauek-overflow-wrapper::-webkit-scrollbar-track:hover {
-    background-color: #131416 !important;
-}
-
-.comp-lwgeauek-overflow-wrapper::-webkit-scrollbar-thumb {
-    border: 5px solid #131416 !important;
-}
-
-.comp-lwgeauek-overflow-wrapper::-webkit-scrollbar-thumb:hover {
+div[data-testid="responsive-container-overflow"]::-webkit-scrollbar-thumb:hover {
     border: 4px solid #131416 !important;
 }
