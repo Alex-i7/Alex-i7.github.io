@@ -9,6 +9,11 @@ window.addEventListener("message", event => {
                     { src: event.data.image, sizes: '512x512', type: 'image/png' }
                 ]
             });
+            if (event.data.playing) {
+                navigator.mediaSession.playbackState = 'playing';
+            } else {
+                navigator.mediaSession.playbackState = 'paused';
+            }
             navigator.mediaSession.setActionHandler('previoustrack', () => {
                 document.getElementsByClassName('wuksD5')[0].contentWindow.postMessage({
                     "type": "control",
