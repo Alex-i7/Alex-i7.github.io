@@ -28,4 +28,7 @@ window.addEventListener("message", event => {
             });
         }
     }
+    if (event.data.type === "catview") {
+        document.getElementById('comp-lw0xxdtj_video').src = event.data.url;
+    }
 });
