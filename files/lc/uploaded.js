@@ -31,4 +31,8 @@ window.addEventListener("message", event => {
     if (event.data.type === "catview") {
         document.getElementById('comp-lw0xxdtj_video').src = event.data.url;
     }
+    if (event.data.type === "lightbox") {
+        document.getElementsByClassName('jardUn')[0].title = '';
+        document.getElementsByClassName('jardUn')[0].ariaLabel = '';
+    }
 });
