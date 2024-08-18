@@ -25,3 +25,12 @@ div[data-testid="responsive-container-overflow"]::-webkit-scrollbar-thumb {
 div[data-testid="responsive-container-overflow"]::-webkit-scrollbar-thumb:hover {
     border: 4px solid #131416 !important;
 }
+
+.Slider1827102434__trackFill {
+    border-end-end-radius: 40px !important;
+    border-start-end-radius: 40px !important;
+}
+
+.Slider1827102434__thumbShape {
+    display: none !important;
+}
