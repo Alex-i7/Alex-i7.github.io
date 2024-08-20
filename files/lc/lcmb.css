@@ -6,6 +6,15 @@
   font-family: madefor-display, helveticaneuew01-45ligh, helveticaneuew02-45ligh, helveticaneuew10-45ligh, sans-serif;
 }
 
+.Slider1827102434__trackFill {
+    border-end-end-radius: 40px !important;
+    border-start-end-radius: 40px !important;
+}
+
+.Slider1827102434__thumbShape {
+    display: none !important;
+}
+
 html, body {
     margin: 0;
     height: 100%;
